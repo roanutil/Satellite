@@ -13,6 +13,12 @@
 		49E6089825C1C8FA002F442B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E6089725C1C8FA002F442B /* Preview Assets.xcassets */; };
 		49E608A325C1C8FA002F442B /* SatelliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608A225C1C8FA002F442B /* SatelliteTests.swift */; };
 		49E608AE25C1C8FA002F442B /* SatelliteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608AD25C1C8FA002F442B /* SatelliteUITests.swift */; };
+		49E608C025C1C92E002F442B /* TwoLineElementSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */; };
+		49E608C825C1C94B002F442B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608C725C1C94B002F442B /* APIService.swift */; };
+		49E608CD25C1C97D002F442B /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608CC25C1C97D002F442B /* Satellite.swift */; };
+		49FA6CE625C1F37300DC2BA2 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */; };
+		49FA6CEF25C1F40D00DC2BA2 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */; };
+		49FA6CF425C1F44A00DC2BA2 /* APIServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		49E608A925C1C8FA002F442B /* SatelliteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatelliteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E608AD25C1C8FA002F442B /* SatelliteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteUITests.swift; sourceTree = "<group>"; };
 		49E608AF25C1C8FA002F442B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLineElementSet.swift; sourceTree = "<group>"; };
+		49E608C725C1C94B002F442B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		49E608CC25C1C97D002F442B /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
+		49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +107,14 @@
 		49E6088F25C1C8F9002F442B /* Satellite */ = {
 			isa = PBXGroup;
 			children = (
+				49FA6CED25C1F3FC00DC2BA2 /* App */,
+				49E608BE25C1C90B002F442B /* API */,
 				49E6089025C1C8F9002F442B /* SatelliteApp.swift */,
 				49E6089225C1C8F9002F442B /* ContentView.swift */,
 				49E6089425C1C8FA002F442B /* Assets.xcassets */,
 				49E6089925C1C8FA002F442B /* Info.plist */,
 				49E6089625C1C8FA002F442B /* Preview Content */,
+				49E608CC25C1C97D002F442B /* Satellite.swift */,
 			);
 			path = Satellite;
 			sourceTree = "<group>";
@@ -115,6 +130,7 @@
 		49E608A125C1C8FA002F442B /* SatelliteTests */ = {
 			isa = PBXGroup;
 			children = (
+				49FA6CE425C1F35A00DC2BA2 /* API */,
 				49E608A225C1C8FA002F442B /* SatelliteTests.swift */,
 				49E608A425C1C8FA002F442B /* Info.plist */,
 			);
@@ -130,6 +146,32 @@
 			path = SatelliteUITests;
 			sourceTree = "<group>";
 		};
+		49E608BE25C1C90B002F442B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */,
+				49E608C725C1C94B002F442B /* APIService.swift */,
+				49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		49FA6CE425C1F35A00DC2BA2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		49FA6CED25C1F3FC00DC2BA2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +180,7 @@
 			buildConfigurationList = 49E608B225C1C8FA002F442B /* Build configuration list for PBXNativeTarget "Satellite" */;
 			buildPhases = (
 				49E6088925C1C8F9002F442B /* Sources */,
+				49EA524625C1EF4C0060808B /* ShellScript */,
 				49E6088A25C1C8F9002F442B /* Frameworks */,
 				49E6088B25C1C8F9002F442B /* Resources */,
 			);
@@ -254,13 +297,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49EA524625C1EF4C0060808B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49E6088925C1C8F9002F442B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				49E6089325C1C8F9002F442B /* ContentView.swift in Sources */,
+				49E608CD25C1C97D002F442B /* Satellite.swift in Sources */,
+				49E608C025C1C92E002F442B /* TwoLineElementSet.swift in Sources */,
+				49E608C825C1C94B002F442B /* APIService.swift in Sources */,
 				49E6089125C1C8F9002F442B /* SatelliteApp.swift in Sources */,
+				49FA6CF425C1F44A00DC2BA2 /* APIServiceClient.swift in Sources */,
+				49FA6CEF25C1F40D00DC2BA2 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FA6CE625C1F37300DC2BA2 /* APIServiceTests.swift in Sources */,
 				49E608A325C1C8FA002F442B /* SatelliteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
