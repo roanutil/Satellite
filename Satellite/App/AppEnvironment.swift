@@ -9,12 +9,12 @@ import Foundation
 
 struct AppEnvironment {
     let mainQueue: DispatchQueue
-    let userInitQueue: DispatchQueue
+    let userInitSerialQueue: DispatchQueue
     let apiClient: APIServiceClient
 
     static let prod = Self(
         mainQueue: .main,
-        userInitQueue: .global(qos: .userInitiated),
+        userInitSerialQueue: .init(label: "userInitSerial", qos: .userInitiated),
         apiClient: APIServiceClient.prod
     )
 }

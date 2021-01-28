@@ -3,12 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49595A8E25C31DEB00351445 /* ViewOrchestratorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595A8D25C31DEB00351445 /* ViewOrchestratorState.swift */; };
+		49595AA425C3250400351445 /* ViewOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AA325C3250400351445 /* ViewOrchestrator.swift */; };
+		49595AB825C340C400351445 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 49595AB725C340C400351445 /* ComposableArchitecture */; };
+		49595AC325C3428600351445 /* SatelliteListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AC225C3428600351445 /* SatelliteListAction.swift */; };
+		49595ACB25C342D500351445 /* SatelliteDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595ACA25C342D500351445 /* SatelliteDetailAction.swift */; };
+		49595AD325C3434E00351445 /* SatelliteListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AD225C3434E00351445 /* SatelliteListReducer.swift */; };
+		49595AD825C3441E00351445 /* APIServiceReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AD725C3441E00351445 /* APIServiceReducer.swift */; };
+		49595AE025C3481500351445 /* ViewOrchestratorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595ADF25C3481500351445 /* ViewOrchestratorAction.swift */; };
+		49595AE525C3489200351445 /* ViewPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AE425C3489200351445 /* ViewPhase.swift */; };
+		49595AED25C358D500351445 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AEC25C358D500351445 /* AppReducer.swift */; };
+		49595AF225C35C3800351445 /* SatelliteDetailReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */; };
+		49595AF725C3633000351445 /* ViewOrchestratorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AF625C3633000351445 /* ViewOrchestratorReducer.swift */; };
 		49E6089125C1C8F9002F442B /* SatelliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E6089025C1C8F9002F442B /* SatelliteApp.swift */; };
-		49E6089325C1C8F9002F442B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E6089225C1C8F9002F442B /* ContentView.swift */; };
 		49E6089525C1C8FA002F442B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E6089425C1C8FA002F442B /* Assets.xcassets */; };
 		49E6089825C1C8FA002F442B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E6089725C1C8FA002F442B /* Preview Assets.xcassets */; };
 		49E608A325C1C8FA002F442B /* SatelliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608A225C1C8FA002F442B /* SatelliteTests.swift */; };
@@ -16,9 +27,18 @@
 		49E608C025C1C92E002F442B /* TwoLineElementSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */; };
 		49E608C825C1C94B002F442B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608C725C1C94B002F442B /* APIService.swift */; };
 		49E608CD25C1C97D002F442B /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608CC25C1C97D002F442B /* Satellite.swift */; };
+		49E608EB25C22DCA002F442B /* APIServiceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608EA25C22DCA002F442B /* APIServiceStore.swift */; };
+		49E608F025C23054002F442B /* SatelliteListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608EF25C23054002F442B /* SatelliteListState.swift */; };
+		49E608F525C23269002F442B /* SatelliteDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608F425C23269002F442B /* SatelliteDetailState.swift */; };
 		49FA6CE625C1F37300DC2BA2 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */; };
 		49FA6CEF25C1F40D00DC2BA2 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */; };
 		49FA6CF425C1F44A00DC2BA2 /* APIServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */; };
+		49FA6D0225C201A000DC2BA2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D0125C201A000DC2BA2 /* AppState.swift */; };
+		49FA6D0725C2022C00DC2BA2 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D0625C2022C00DC2BA2 /* AppAction.swift */; };
+		49FA6D0C25C2029E00DC2BA2 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D0B25C2029E00DC2BA2 /* AppView.swift */; };
+		49FA6D1425C202EF00DC2BA2 /* SatelliteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D1325C202EF00DC2BA2 /* SatelliteListView.swift */; };
+		49FA6D2025C205F900DC2BA2 /* SatelliteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D1F25C205F900DC2BA2 /* SatelliteDetailView.swift */; };
+		49FA6D2525C2074B00DC2BA2 /* APIServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6D2425C2074B00DC2BA2 /* APIServiceState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +59,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49595A8D25C31DEB00351445 /* ViewOrchestratorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorState.swift; sourceTree = "<group>"; };
+		49595AA325C3250400351445 /* ViewOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestrator.swift; sourceTree = "<group>"; };
+		49595AC225C3428600351445 /* SatelliteListAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListAction.swift; sourceTree = "<group>"; };
+		49595ACA25C342D500351445 /* SatelliteDetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailAction.swift; sourceTree = "<group>"; };
+		49595AD225C3434E00351445 /* SatelliteListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListReducer.swift; sourceTree = "<group>"; };
+		49595AD725C3441E00351445 /* APIServiceReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceReducer.swift; sourceTree = "<group>"; };
+		49595ADF25C3481500351445 /* ViewOrchestratorAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorAction.swift; sourceTree = "<group>"; };
+		49595AE425C3489200351445 /* ViewPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPhase.swift; sourceTree = "<group>"; };
+		49595AEC25C358D500351445 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailReducer.swift; sourceTree = "<group>"; };
+		49595AF625C3633000351445 /* ViewOrchestratorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorReducer.swift; sourceTree = "<group>"; };
 		49E6088D25C1C8F9002F442B /* Satellite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satellite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E6089025C1C8F9002F442B /* SatelliteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteApp.swift; sourceTree = "<group>"; };
-		49E6089225C1C8F9002F442B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49E6089425C1C8FA002F442B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49E6089725C1C8FA002F442B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49E6089925C1C8FA002F442B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,9 +84,18 @@
 		49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLineElementSet.swift; sourceTree = "<group>"; };
 		49E608C725C1C94B002F442B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		49E608CC25C1C97D002F442B /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
+		49E608EA25C22DCA002F442B /* APIServiceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStore.swift; sourceTree = "<group>"; };
+		49E608EF25C23054002F442B /* SatelliteListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListState.swift; sourceTree = "<group>"; };
+		49E608F425C23269002F442B /* SatelliteDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailState.swift; sourceTree = "<group>"; };
 		49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceClient.swift; sourceTree = "<group>"; };
+		49FA6D0125C201A000DC2BA2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		49FA6D0625C2022C00DC2BA2 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		49FA6D0B25C2029E00DC2BA2 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		49FA6D1325C202EF00DC2BA2 /* SatelliteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListView.swift; sourceTree = "<group>"; };
+		49FA6D1F25C205F900DC2BA2 /* SatelliteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailView.swift; sourceTree = "<group>"; };
+		49FA6D2425C2074B00DC2BA2 /* APIServiceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49595AB825C340C400351445 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +124,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49595A9225C31F8D00351445 /* ViewOrchestration */ = {
+			isa = PBXGroup;
+			children = (
+				49595A8D25C31DEB00351445 /* ViewOrchestratorState.swift */,
+				49595AA325C3250400351445 /* ViewOrchestrator.swift */,
+				49595ADF25C3481500351445 /* ViewOrchestratorAction.swift */,
+				49595AE425C3489200351445 /* ViewPhase.swift */,
+				49595AF625C3633000351445 /* ViewOrchestratorReducer.swift */,
+			);
+			path = ViewOrchestration;
+			sourceTree = "<group>";
+		};
 		49E6088425C1C8F9002F442B = {
 			isa = PBXGroup;
 			children = (
@@ -107,14 +159,14 @@
 		49E6088F25C1C8F9002F442B /* Satellite */ = {
 			isa = PBXGroup;
 			children = (
+				49595A9225C31F8D00351445 /* ViewOrchestration */,
+				49FA6D1825C203C200DC2BA2 /* SatelliteDetail */,
+				49FA6CF825C2017F00DC2BA2 /* SatelliteList */,
 				49FA6CED25C1F3FC00DC2BA2 /* App */,
 				49E608BE25C1C90B002F442B /* API */,
-				49E6089025C1C8F9002F442B /* SatelliteApp.swift */,
-				49E6089225C1C8F9002F442B /* ContentView.swift */,
 				49E6089425C1C8FA002F442B /* Assets.xcassets */,
 				49E6089925C1C8FA002F442B /* Info.plist */,
 				49E6089625C1C8FA002F442B /* Preview Content */,
-				49E608CC25C1C97D002F442B /* Satellite.swift */,
 			);
 			path = Satellite;
 			sourceTree = "<group>";
@@ -152,6 +204,9 @@
 				49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */,
 				49E608C725C1C94B002F442B /* APIService.swift */,
 				49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */,
+				49FA6D2425C2074B00DC2BA2 /* APIServiceState.swift */,
+				49E608EA25C22DCA002F442B /* APIServiceStore.swift */,
+				49595AD725C3441E00351445 /* APIServiceReducer.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -168,8 +223,36 @@
 			isa = PBXGroup;
 			children = (
 				49FA6CEE25C1F40D00DC2BA2 /* AppEnvironment.swift */,
+				49FA6D0125C201A000DC2BA2 /* AppState.swift */,
+				49FA6D0625C2022C00DC2BA2 /* AppAction.swift */,
+				49FA6D0B25C2029E00DC2BA2 /* AppView.swift */,
+				49E6089025C1C8F9002F442B /* SatelliteApp.swift */,
+				49595AEC25C358D500351445 /* AppReducer.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		49FA6CF825C2017F00DC2BA2 /* SatelliteList */ = {
+			isa = PBXGroup;
+			children = (
+				49FA6D1325C202EF00DC2BA2 /* SatelliteListView.swift */,
+				49E608EF25C23054002F442B /* SatelliteListState.swift */,
+				49595AC225C3428600351445 /* SatelliteListAction.swift */,
+				49595AD225C3434E00351445 /* SatelliteListReducer.swift */,
+			);
+			path = SatelliteList;
+			sourceTree = "<group>";
+		};
+		49FA6D1825C203C200DC2BA2 /* SatelliteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				49E608CC25C1C97D002F442B /* Satellite.swift */,
+				49FA6D1F25C205F900DC2BA2 /* SatelliteDetailView.swift */,
+				49E608F425C23269002F442B /* SatelliteDetailState.swift */,
+				49595ACA25C342D500351445 /* SatelliteDetailAction.swift */,
+				49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */,
+			);
+			path = SatelliteDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +272,9 @@
 			dependencies = (
 			);
 			name = Satellite;
+			packageProductDependencies = (
+				49595AB725C340C400351445 /* ComposableArchitecture */,
+			);
 			productName = Satellite;
 			productReference = 49E6088D25C1C8F9002F442B /* Satellite.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +346,9 @@
 				Base,
 			);
 			mainGroup = 49E6088425C1C8F9002F442B;
+			packageReferences = (
+				49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 49E6088E25C1C8F9002F442B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -322,11 +411,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E6089325C1C8F9002F442B /* ContentView.swift in Sources */,
 				49E608CD25C1C97D002F442B /* Satellite.swift in Sources */,
+				49FA6D2525C2074B00DC2BA2 /* APIServiceState.swift in Sources */,
 				49E608C025C1C92E002F442B /* TwoLineElementSet.swift in Sources */,
+				49E608F525C23269002F442B /* SatelliteDetailState.swift in Sources */,
+				49595AC325C3428600351445 /* SatelliteListAction.swift in Sources */,
+				49595AD825C3441E00351445 /* APIServiceReducer.swift in Sources */,
+				49595AED25C358D500351445 /* AppReducer.swift in Sources */,
+				49FA6D0C25C2029E00DC2BA2 /* AppView.swift in Sources */,
 				49E608C825C1C94B002F442B /* APIService.swift in Sources */,
+				49E608EB25C22DCA002F442B /* APIServiceStore.swift in Sources */,
+				49595AE525C3489200351445 /* ViewPhase.swift in Sources */,
+				49595AF725C3633000351445 /* ViewOrchestratorReducer.swift in Sources */,
 				49E6089125C1C8F9002F442B /* SatelliteApp.swift in Sources */,
+				49E608F025C23054002F442B /* SatelliteListState.swift in Sources */,
+				49595ACB25C342D500351445 /* SatelliteDetailAction.swift in Sources */,
+				49595AD325C3434E00351445 /* SatelliteListReducer.swift in Sources */,
+				49595AA425C3250400351445 /* ViewOrchestrator.swift in Sources */,
+				49595AF225C35C3800351445 /* SatelliteDetailReducer.swift in Sources */,
+				49FA6D0225C201A000DC2BA2 /* AppState.swift in Sources */,
+				49FA6D0725C2022C00DC2BA2 /* AppAction.swift in Sources */,
+				49595AE025C3481500351445 /* ViewOrchestratorAction.swift in Sources */,
+				49FA6D1425C202EF00DC2BA2 /* SatelliteListView.swift in Sources */,
+				49595A8E25C31DEB00351445 /* ViewOrchestratorState.swift in Sources */,
+				49FA6D2025C205F900DC2BA2 /* SatelliteDetailView.swift in Sources */,
 				49FA6CF425C1F44A00DC2BA2 /* APIServiceClient.swift in Sources */,
 				49FA6CEF25C1F40D00DC2BA2 /* AppEnvironment.swift in Sources */,
 			);
@@ -649,6 +757,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49595AB725C340C400351445 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49E6088525C1C8F9002F442B /* Project object */;
 }

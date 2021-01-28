@@ -9,11 +9,8 @@ import Foundation
 
 typealias Satellite = TwoLineElementSet
 extension Satellite {
-    // MARK: Base Properties
-    var id: String { String(self.satelliteId) }
-
     // MARK: Line 1 Properties
-    var number: Int? { self.line1?.satelliteNumber }
+    var number: String? { self.line1?.satelliteNumber }
     var internationalDesignator: String? { self.line1?.internationalDesignator }
     var epochYearJulianDayFraction: String? { self.line1?.epochYearJulianDayFraction }
     var ballisticCoefficient: Double? { self.line1?.ballisticCoefficient }
@@ -28,5 +25,5 @@ extension Satellite {
     var argumentOfPerigee: Double? { self.line2?.argumentOfPerigee }
     var meanAnomaly: Double? { self.line2?.meanAnomaly }
     var meanMotion: Double? { self.line2?.meanMotion }
-    var revolutionNumber: Double? { self.line2?.revolutionNumber }
+    var revolutionNumber: Int? { self.line2?.revolutionNumber }
 }

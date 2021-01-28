@@ -34,7 +34,7 @@ struct TwoLineElementSet {
 
     // "line1":"1 42849U 17042AA  21026.54510369  .00000579  00000-0  61391-4 0  9990"
     struct LineOne {
-        let satelliteNumber: Int
+        let satelliteNumber: String
         let internationalDesignator: String
         let epochYearJulianDayFraction: String
         let ballisticCoefficient: Double
@@ -44,17 +44,21 @@ struct TwoLineElementSet {
 
         init(raw: String) throws {
             var parts = raw.split(separator: " ")
-            if parts[0] == "1" { parts.remove(at: 0) }
-            guard parts.count == 7 else { throw ParseError.invalidCountOfElements }
+            guard parts.count == 9 else {
+                throw ParseError.invalidCountOfElements
+            }
+            parts.remove(at: 0)
+            parts.remove(at: 6)
+            self.satelliteNumber = String(parts[0])
             self.internationalDesignator = String(parts[1])
             self.epochYearJulianDayFraction = String(parts[2])
-            guard let satelliteNumber = Int(parts[0]),
-                  let ballisticCoefficient = Self.parseLeadingZero(raw: String(parts[3])),
-                  let secondOrderBallisticCoefficient = Double(parts[4]),
+            guard let ballisticCoefficient = Double(parts[3]),
+                  let secondOrderBallisticCoefficient = Self.parseLeadingZero(raw: String(parts[4])),
                   let dragTerm = Self.parseLeadingZero(raw: String(parts[5])),
                   let checkSum = Int(parts[6])
-            else { throw ParseError.invalidElement }
-            self.satelliteNumber = satelliteNumber
+            else {
+                throw ParseError.invalidElement
+            }
             self.ballisticCoefficient = ballisticCoefficient
             self.secondOrderBallisticCoefficient = secondOrderBallisticCoefficient
             self.dragTerm = dragTerm
@@ -81,21 +85,29 @@ struct TwoLineElementSet {
         let argumentOfPerigee: Double
         let meanAnomaly: Double
         let meanMotion: Double
-        let revolutionNumber: Double
+        let revolutionNumber: Int
 
         init(raw: String) throws {
             var parts = raw.split(separator: " ")
-            if parts[0] == "2" { parts.remove(at: 0) }
-            guard parts.count == 8 else { throw ParseError.invalidCountOfElements }
+            parts.remove(at: 0)
+            if parts.count == 7 {
+                let part67 = parts[6]
+                parts[6] = part67.dropLast(6)
+                parts.append(part67.dropFirst(11))
+            } else if parts.count < 7 {
+                throw ParseError.invalidCountOfElements
+            }
             self.satelliteNumber = String(parts[0])
             guard let inclination = Double(String(parts[1])),
                   let rightAscension = Double(String(parts[2])),
                   let eccentricity = Self.parseLeadingDecimal(raw: String(parts[3])),
                   let argumentOfPerigee = Double(String(parts[4])),
                   let meanAnomaly = Double(String(parts[5])),
-                  let meanMotion = Double(String(parts[6])),
-                  let revolutionNumber = Double(String(parts[7]))
-            else { throw ParseError.invalidElement }
+                  let meanMotion = Double(parts[6]),
+                  let revolutionNumber = Int(parts[7])
+            else {
+                throw ParseError.invalidElement
+            }
             self.inclination = inclination
             self.rightAscension = rightAscension
             self.eccentricity = eccentricity
@@ -110,3 +122,11 @@ struct TwoLineElementSet {
         }
     }
 }
+
+extension TwoLineElementSet: Identifiable {
+    var id: String { self.satelliteId }
+}
+
+extension TwoLineElementSet.LineOne: Hashable {}
+extension TwoLineElementSet.LineTwo: Hashable {}
+extension TwoLineElementSet: Hashable {}

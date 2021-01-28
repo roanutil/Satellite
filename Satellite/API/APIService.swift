@@ -30,6 +30,7 @@ final class APIService {
         urlComponents.queryItems = queryItems
         return urlComponents.url!
     }
+    // TODO: Move into plist or secrets file
     let token = "DEMO_KEY"
 
     func fetchSatellites(
@@ -69,14 +70,14 @@ final class APIService {
         case asc, desc
     }
 
-    enum TLEAPIError: Error {
+    enum TLEAPIError: Error, Equatable {
         case url(URLResponse)
         case http(HTTPURLResponse)
         case parse(TwoLineElementSet.ParseError)
         case cocoa(NSError)
     }
 
-    struct PartialDecodeTLE: Decodable {
+    struct PartialDecodeTLE: Decodable, Equatable {
         let satelliteId: Int
         let name: String
         let date: String
@@ -84,14 +85,14 @@ final class APIService {
         let line2: String
     }
 
-    struct FetchSatellitesData: Decodable {
+    struct FetchSatellitesData: Decodable, Equatable {
         let totalItems: Int
         let parameters: Parameters
         let member: [PartialDecodeTLE]
         let view: [String: String]
 
         // "parameters":{"search":"*","sort":"name","sort-dir":"asc","page":1,"page-size":20}
-        struct Parameters: Decodable {
+        struct Parameters: Decodable, Equatable {
             let search: String
             let sort: SortKey
             let sortDir: SortDirection

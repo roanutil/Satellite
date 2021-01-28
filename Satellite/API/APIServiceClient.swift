@@ -13,7 +13,17 @@ struct APIServiceClient {
     typealias SortDirection = APIService.SortDirection
     typealias FetchSatellitesData = APIService.FetchSatellitesData
     typealias APIError = APIService.TLEAPIError
-    let fetchSatellites: (_ search: String, _ sort: SortKey, _ sortDir: SortDirection, _ page: Int, _ pageSize: Int) -> AnyPublisher<FetchSatellitesData, APIError>
+    private let fetchSatellites: (
+        _ search: String,
+        _ sort: SortKey,
+        _ sortDir: SortDirection,
+        _ page: Int,
+        _ pageSize: Int
+    ) -> AnyPublisher<FetchSatellitesData, APIError>
+
+    func fetchSatellites(page: Int, pageSize: Int) -> AnyPublisher<FetchSatellitesData, APIError> {
+        self.fetchSatellites("", .name, .asc, page, pageSize)
+    }
 
     static let prod: Self = {
         let service = APIService()
