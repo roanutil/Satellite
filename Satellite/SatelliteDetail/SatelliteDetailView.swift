@@ -22,6 +22,7 @@ struct SatelliteDetailView: View {
         WithViewStore(store) { viewStore in
             ZStack {
                 VStack {
+                    // Compact size class doesn't have enough room for side-by-side
                     if horizontalSizeClass == .regular {
                         HStack {
                             Text(viewStore.satellite.name)
@@ -48,7 +49,6 @@ struct SatelliteDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .foregroundColor(.white)
-                            //.background(Color.gray)
                             .frame(maxWidth: dismissMaxSize.width, maxHeight: dismissMaxSize.height)
                     }
                     Spacer()

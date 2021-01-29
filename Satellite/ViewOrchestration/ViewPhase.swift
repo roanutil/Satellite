@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Special state that represents list vs detail presentation
 enum ViewPhase: Equatable {
     case listFocus
     case detailFocus(SatelliteDetailState)

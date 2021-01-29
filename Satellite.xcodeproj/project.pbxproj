@@ -17,9 +17,7 @@
 		49595AE025C3481500351445 /* ViewOrchestratorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595ADF25C3481500351445 /* ViewOrchestratorAction.swift */; };
 		49595AE525C3489200351445 /* ViewPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AE425C3489200351445 /* ViewPhase.swift */; };
 		49595AED25C358D500351445 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AEC25C358D500351445 /* AppReducer.swift */; };
-		49595AF225C35C3800351445 /* SatelliteDetailReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */; };
 		49595AF725C3633000351445 /* ViewOrchestratorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AF625C3633000351445 /* ViewOrchestratorReducer.swift */; };
-		49595B0925C3727800351445 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595B0825C3727800351445 /* helper.swift */; };
 		49595B0E25C37A6400351445 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595B0D25C37A6400351445 /* BackgroundView.swift */; };
 		49595B1425C3866600351445 /* StarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595B1325C3866600351445 /* StarProvider.swift */; };
 		49595B1C25C3A45100351445 /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595B1B25C3A45100351445 /* Earth.swift */; };
@@ -73,9 +71,7 @@
 		49595ADF25C3481500351445 /* ViewOrchestratorAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorAction.swift; sourceTree = "<group>"; };
 		49595AE425C3489200351445 /* ViewPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPhase.swift; sourceTree = "<group>"; };
 		49595AEC25C358D500351445 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailReducer.swift; sourceTree = "<group>"; };
 		49595AF625C3633000351445 /* ViewOrchestratorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorReducer.swift; sourceTree = "<group>"; };
-		49595B0825C3727800351445 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		49595B0D25C37A6400351445 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		49595B1325C3866600351445 /* StarProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarProvider.swift; sourceTree = "<group>"; };
 		49595B1B25C3A45100351445 /* Earth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
@@ -148,14 +144,6 @@
 			path = ViewOrchestration;
 			sourceTree = "<group>";
 		};
-		49595B0725C3725A00351445 /* Orbital Calc */ = {
-			isa = PBXGroup;
-			children = (
-				49595B0825C3727800351445 /* helper.swift */,
-			);
-			path = "Orbital Calc";
-			sourceTree = "<group>";
-		};
 		49595B1225C3865500351445 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				49595B1225C3865500351445 /* Util */,
-				49595B0725C3725A00351445 /* Orbital Calc */,
 				49595A9225C31F8D00351445 /* ViewOrchestration */,
 				49FA6D1825C203C200DC2BA2 /* SatelliteDetail */,
 				49FA6CF825C2017F00DC2BA2 /* SatelliteList */,
@@ -281,7 +268,6 @@
 				49FA6D1F25C205F900DC2BA2 /* SatelliteDetailView.swift */,
 				49E608F425C23269002F442B /* SatelliteDetailState.swift */,
 				49595ACA25C342D500351445 /* SatelliteDetailAction.swift */,
-				49595AF125C35C3800351445 /* SatelliteDetailReducer.swift */,
 			);
 			path = SatelliteDetail;
 			sourceTree = "<group>";
@@ -462,8 +448,6 @@
 				49595AD325C3434E00351445 /* SatelliteListReducer.swift in Sources */,
 				49595B1C25C3A45100351445 /* Earth.swift in Sources */,
 				49595AA425C3250400351445 /* ViewOrchestrator.swift in Sources */,
-				49595AF225C35C3800351445 /* SatelliteDetailReducer.swift in Sources */,
-				49595B0925C3727800351445 /* helper.swift in Sources */,
 				49FA6D0225C201A000DC2BA2 /* AppState.swift in Sources */,
 				49FA6D0725C2022C00DC2BA2 /* AppAction.swift in Sources */,
 				49595AE025C3481500351445 /* ViewOrchestratorAction.swift in Sources */,

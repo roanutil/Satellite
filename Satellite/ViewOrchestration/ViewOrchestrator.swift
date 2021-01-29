@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+/// Consolidates all or most of the view specific logic for animations, transitions, adaptivity, etc.
 struct ViewOrchestrator<Background: View, Earth: View, List: View, Detail: View>: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let store: Store<ViewOrchestratorState, ViewOrchestratorAction>
@@ -59,6 +60,8 @@ struct ViewOrchestrator<Background: View, Earth: View, List: View, Detail: View>
                         detail(CGSize(width: proxy.width/12, height: proxy.height/12)).zIndex(viewStore.detailZIndex)
                     }
                 }.zIndex(1)
+                // Cover up the status bar and bottom of screen since I don't want the
+                // background to extend out of safe area.
                 Color.black
                     .ignoresSafeArea(.all, edges: .all)
                     .zIndex(0)

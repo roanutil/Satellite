@@ -8,8 +8,10 @@
 import Foundation
 import Combine
 
+// Provides network api functionality for fetching satellites.
 final class APIService {
     let pageRange = 1...
+    // The API docs note that the max page size is 100. Default is 20.
     let pageSize = 1...100
     var baseURL: URL { URL(string: "https://tle.ivanstanojevic.me/api/tle")! }
     func fetchURL(
@@ -92,6 +94,7 @@ final class APIService {
         let view: [String: String]
 
         // "parameters":{"search":"*","sort":"name","sort-dir":"asc","page":1,"page-size":20}
+        // swiftlint:disable:next nesting
         struct Parameters: Decodable, Equatable {
             let search: String
             let sort: SortKey
@@ -99,6 +102,7 @@ final class APIService {
             let page: Int
             let pageSize: Int
 
+            // swiftlint:disable:next nesting
             enum CodingKeys: String, CodingKey {
                 case search
                 case sort

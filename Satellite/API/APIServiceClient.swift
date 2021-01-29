@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// Dependency injection point for all services and side effects
 struct APIServiceClient {
     typealias SortKey = APIService.SortKey
     typealias SortDirection = APIService.SortDirection

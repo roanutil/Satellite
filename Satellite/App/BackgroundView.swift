@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// The black background with stars generated over it that covers of the of the screen
 struct BackgroundView: View {
     @Environment(\.starProvider) var stars
     let containerSize: CGSize
@@ -23,6 +24,7 @@ struct BackgroundView: View {
                 Circle()
                     .fill(Color.white)
                     .frame(width: 2, height: 2, alignment: .center)
+                    // Scale star positions with size of background.
                     .position(CGPoint(x: star.x*containerSize.width, y: star.y*containerSize.height))
                     .zIndex(20)
 

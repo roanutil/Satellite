@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Generates the random points for placing stars on the background
 struct StarProvider {
     static func stars(quantity: Int) -> [CGPoint] {
         (0...quantity).map { _ in

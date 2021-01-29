@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View that presents the image of earth with orbitting satellite
 struct Earth: View {
     @State private var angle: Double = 0
     var body: some View {

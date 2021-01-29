@@ -9,7 +9,11 @@
 
 import Foundation
 
+// The TLE model is a pain to decode. It's too much work for the scope of this challenge but
+// it's partially implemented for future use.
+
 /*
+ Sample
  {
  "@id":"https:\/\/tle.ivanstanojevic.me\/api\/tle\/43638",
  "@type":"TleModel",
@@ -32,6 +36,7 @@ struct TwoLineElementSet {
         case invalidElement
     }
 
+    // Sample
     // "line1":"1 42849U 17042AA  21026.54510369  .00000579  00000-0  61391-4 0  9990"
     struct LineOne {
         let raw: String
@@ -78,6 +83,7 @@ struct TwoLineElementSet {
         }
     }
 
+    // Sample
     // "line2":"2 42849  97.4954 266.5032 0006639 248.8297 111.2213 14.92619820192684"
     struct LineTwo {
         let raw: String

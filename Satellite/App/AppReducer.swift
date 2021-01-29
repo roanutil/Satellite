@@ -13,11 +13,6 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
         action: /AppAction.list,
         environment: { $0 }
     ),
-    satelliteDetailReducer.optional().pullback(
-        state: \AppState.detail,
-        action: /AppAction.detail,
-        environment: { $0 }
-    ),
     Reducer { state, action, _ in
         switch action {
         case .detail(let detailAction):

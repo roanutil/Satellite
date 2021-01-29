@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// I prefer to have a more sensible name throughout the app but no need to duplicate the model from API
 typealias Satellite = TwoLineElementSet
+
+/// Convenience access for all properties. Intended for future use when drawing satellites in real time based on actual data.
 extension Satellite {
     // MARK: Line 1 Properties
     var number: String? { self.line1?.satelliteNumber }

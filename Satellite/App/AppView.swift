@@ -12,7 +12,7 @@ struct AppView: View {
     let store: Store<AppState, AppAction>
 
     var body: some View {
-        WithViewStore(store) { viewStore in
+        WithViewStore(store) { _ in
             ViewOrchestrator(
                 store: orchestratorStore,
                 background: BackgroundView.init(containerSize:),
@@ -23,7 +23,7 @@ struct AppView: View {
                         self.detailStore,
                         then: { SatelliteDetailView(store: $0, dismissMaxSize: maxDismissSize) })
                 }
-            ).onAppear(perform: { viewStore.send(.list(.api(.fetch(page: 1)))) })
+            )
         }
     }
 

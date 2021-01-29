@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// Holds all dependency injection for the app's services and side effects
 struct AppEnvironment {
     let mainQueue: DispatchQueue
     let userInitSerialQueue: DispatchQueue
