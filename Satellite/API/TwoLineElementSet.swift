@@ -34,35 +34,37 @@ struct TwoLineElementSet {
 
     // "line1":"1 42849U 17042AA  21026.54510369  .00000579  00000-0  61391-4 0  9990"
     struct LineOne {
-        let satelliteNumber: String
-        let internationalDesignator: String
-        let epochYearJulianDayFraction: String
-        let ballisticCoefficient: Double
-        let secondOrderBallisticCoefficient: Double
-        let dragTerm: Double
-        let checkSum: Int
+        let raw: String
+        let satelliteNumber: String?
+        let internationalDesignator: String?
+        let epochYearJulianDayFraction: String?
+        let ballisticCoefficient: Double?
+        let secondOrderBallisticCoefficient: Double?
+        let dragTerm: Double?
+        let checkSum: Int?
 
-        init(raw: String) throws {
+        init(raw: String) {
+            self.raw = raw
             var parts = raw.split(separator: " ")
-            guard parts.count == 9 else {
-                throw ParseError.invalidCountOfElements
+            guard parts.count >= 9 else {
+                self.satelliteNumber = nil
+                self.internationalDesignator = nil
+                self.epochYearJulianDayFraction = nil
+                self.ballisticCoefficient = nil
+                self.secondOrderBallisticCoefficient = nil
+                self.dragTerm = nil
+                self.checkSum = nil
+                return
             }
             parts.remove(at: 0)
             parts.remove(at: 6)
             self.satelliteNumber = String(parts[0])
             self.internationalDesignator = String(parts[1])
             self.epochYearJulianDayFraction = String(parts[2])
-            guard let ballisticCoefficient = Double(parts[3]),
-                  let secondOrderBallisticCoefficient = Self.parseLeadingZero(raw: String(parts[4])),
-                  let dragTerm = Self.parseLeadingZero(raw: String(parts[5])),
-                  let checkSum = Int(parts[6])
-            else {
-                throw ParseError.invalidElement
-            }
-            self.ballisticCoefficient = ballisticCoefficient
-            self.secondOrderBallisticCoefficient = secondOrderBallisticCoefficient
-            self.dragTerm = dragTerm
-            self.checkSum = checkSum
+            self.ballisticCoefficient = Double(parts[3])
+            self.secondOrderBallisticCoefficient = Self.parseLeadingZero(raw: String(parts[4]))
+            self.dragTerm = Self.parseLeadingZero(raw: String(parts[5]))
+            self.checkSum = Int(parts[6])
         }
 
         static func parseLeadingZero(raw: String) -> Double? {
@@ -78,16 +80,18 @@ struct TwoLineElementSet {
 
     // "line2":"2 42849  97.4954 266.5032 0006639 248.8297 111.2213 14.92619820192684"
     struct LineTwo {
-        let satelliteNumber: String
-        let inclination: Double
-        let rightAscension: Double
-        let eccentricity: Double
-        let argumentOfPerigee: Double
-        let meanAnomaly: Double
-        let meanMotion: Double
-        let revolutionNumber: Int
+        let raw: String
+        let satelliteNumber: String?
+        let inclination: Double?
+        let rightAscension: Double?
+        let eccentricity: Double?
+        let argumentOfPerigee: Double?
+        let meanAnomaly: Double?
+        let meanMotion: Double?
+        let revolutionNumber: Int?
 
-        init(raw: String) throws {
+        init(raw: String) {
+            self.raw = raw
             var parts = raw.split(separator: " ")
             parts.remove(at: 0)
             if parts.count == 7 {
@@ -95,26 +99,24 @@ struct TwoLineElementSet {
                 parts[6] = part67.dropLast(6)
                 parts.append(part67.dropFirst(11))
             } else if parts.count < 7 {
-                throw ParseError.invalidCountOfElements
+                self.satelliteNumber = nil
+                self.inclination = nil
+                self.rightAscension = nil
+                self.eccentricity = nil
+                self.argumentOfPerigee = nil
+                self.meanAnomaly = nil
+                self.meanMotion = nil
+                self.revolutionNumber = nil
+                return
             }
             self.satelliteNumber = String(parts[0])
-            guard let inclination = Double(String(parts[1])),
-                  let rightAscension = Double(String(parts[2])),
-                  let eccentricity = Self.parseLeadingDecimal(raw: String(parts[3])),
-                  let argumentOfPerigee = Double(String(parts[4])),
-                  let meanAnomaly = Double(String(parts[5])),
-                  let meanMotion = Double(parts[6]),
-                  let revolutionNumber = Int(parts[7])
-            else {
-                throw ParseError.invalidElement
-            }
-            self.inclination = inclination
-            self.rightAscension = rightAscension
-            self.eccentricity = eccentricity
-            self.argumentOfPerigee = argumentOfPerigee
-            self.meanAnomaly = meanAnomaly
-            self.meanMotion = meanMotion
-            self.revolutionNumber = revolutionNumber
+            self.inclination = Double(String(parts[1]))
+            self.rightAscension = Double(String(parts[2]))
+            self.eccentricity = Self.parseLeadingDecimal(raw: String(parts[3]))
+            self.argumentOfPerigee = Double(String(parts[4]))
+            self.meanAnomaly = Double(String(parts[5]))
+            self.meanMotion = Double(parts[6])
+            self.revolutionNumber = Int(parts[7])
         }
 
         static func parseLeadingDecimal(raw: String) -> Double? {

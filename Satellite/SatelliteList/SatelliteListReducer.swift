@@ -24,12 +24,7 @@ let satelliteListReducer = Reducer.combine(
         case .api(let apiAction):
             switch apiAction {
             case .fetchResponse(.success(let response)):
-                do {
-                    state.satellites = try response.member.map { try Satellite(partialDecode: $0) }
-                } catch {
-                    // TODO: Map errors to UI
-                    fatalError("Failed to parse two line data to satellites")
-                }
+                state.satellites = response.member.map { Satellite(partialDecode: $0) }
                 return .none
             default:
                 return .none

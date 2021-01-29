@@ -16,8 +16,24 @@ struct ViewOrchestratorState: Equatable {
 
     // MARK: Scaling
     var earthScale: CGFloat
+    var backgroundScale: CGFloat
 
-    static let listFocus = ViewOrchestratorState(listZIndex: 100, detailZIndex: 0, earthScale: 0.1)
+    // MARK: Offset
+    var shouldOffsetList: Bool
 
-    static let detailFocus = ViewOrchestratorState(listZIndex: 0, detailZIndex: 100, earthScale: 1)
+    static let listFocus = ViewOrchestratorState(
+        listZIndex: 100,
+        detailZIndex: 0,
+        earthScale: 0.1,
+        backgroundScale: 1,
+        shouldOffsetList: false
+    )
+
+    static let detailFocus = ViewOrchestratorState(
+        listZIndex: 100,
+        detailZIndex: 100,
+        earthScale: 1,
+        backgroundScale: 1.1,
+        shouldOffsetList: true
+    )
 }

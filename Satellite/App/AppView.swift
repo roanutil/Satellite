@@ -15,10 +15,14 @@ struct AppView: View {
         WithViewStore(store) { viewStore in
             ViewOrchestrator(
                 store: orchestratorStore,
-                background: Color.black,
-                earth: Image("earth"),
-                list: SatelliteList(store: listStore),
-                detail: IfLetStore(self.detailStore, then: SatelliteDetailView.init)
+                background: BackgroundView.init(containerSize:),
+                earth: Earth(),
+                list: { maxWidth in SatelliteList(store: listStore, maxWidth: maxWidth) },
+                detail: { maxDismissSize in
+                    IfLetStore(
+                        self.detailStore,
+                        then: { SatelliteDetailView(store: $0, dismissMaxSize: maxDismissSize) })
+                }
             ).onAppear(perform: { viewStore.send(.list(.api(.fetch(page: 1)))) })
         }
     }

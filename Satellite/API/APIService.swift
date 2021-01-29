@@ -31,7 +31,7 @@ final class APIService {
         return urlComponents.url!
     }
     // TODO: Move into plist or secrets file
-    let token = "DEMO_KEY"
+    let token = "ItcSCoUu61IBbxoAZt2a083NRqspme99X08QV8Ra"
 
     func fetchSatellites(
         search: String = "",
@@ -111,12 +111,12 @@ final class APIService {
 }
 
 extension TwoLineElementSet {
-    init(partialDecode: APIService.PartialDecodeTLE) throws {
+    init(partialDecode: APIService.PartialDecodeTLE) {
         self.satelliteId = String(partialDecode.satelliteId)
         self.name = partialDecode.name
         self.date = partialDecode.date
-        self.line1 = try LineOne(raw: partialDecode.line1)
-        self.line2 = try LineTwo(raw: partialDecode.line2)
+        self.line1 = LineOne(raw: partialDecode.line1)
+        self.line2 = LineTwo(raw: partialDecode.line2)
     }
 }
 

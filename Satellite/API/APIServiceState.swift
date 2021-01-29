@@ -9,6 +9,14 @@ import Foundation
 
 struct APIServiceState: Equatable {
     var currentPage: Int = 1
-    var pageSize: Int = 20
+    var pageSize: Int = 50
+    var totalItemCount: Int = 0
+    var totalPages: Int {
+        var total = (totalItemCount/pageSize)
+        if totalItemCount%pageSize > 0 {
+            total += 1
+        }
+        return total
+    }
     var isFetching: Bool = false
 }

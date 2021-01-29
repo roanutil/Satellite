@@ -20,6 +20,7 @@ let apiServiceReducer = Reducer<APIServiceState, APIServiceAction, AppEnvironmen
         case .success(let data):
             state.isFetching = false
             state.currentPage = data.parameters.page
+            state.totalItemCount = data.totalItems
             return .none
         case .failure:
             // TODO: Map errors to UI
