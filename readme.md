@@ -6,6 +6,8 @@ Satellite displays a paginated list of satellites orbiting earth over a view of 
 The architecture used is ComposableArchitecture which is my preferrence. It allows effortless composition of features and scenes in a functional reactive paradigm. 
 
 ## Challenge
+#### Time limit - 48 Hours
+### Description
 Build a simple SwiftUI application with the following requirements:
 1. Your are limited to a maximum of 3 Views
 2. Your views should be linked creatively with some kind of button, Toggle, or BOOL.
@@ -26,8 +28,10 @@ Incorporate an API of your choice into your project
 ## Assumptions
 The limit of 3 views is really saying 3 'scenes'
 
+## API Key
+Go to https://api.nasa.gov for your own API key. The demo key which has more severe rate limiting is hard coded into the APIService.
+
 ## Reference
-https://api.nasa.gov
 https://tle.ivanstanojevic.me
 https://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html
 

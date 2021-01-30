@@ -33,7 +33,7 @@ final class APIService {
         return urlComponents.url!
     }
     // TODO: Move into plist or secrets file
-    let token = "ItcSCoUu61IBbxoAZt2a083NRqspme99X08QV8Ra"
+    let token = "DEMO_KEY"
 
     func fetchSatellites(
         search: String = "",
