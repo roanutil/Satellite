@@ -9,7 +9,10 @@ import Foundation
 import Combine
 
 extension Publisher where Failure: Error {
-    func mapToResult() -> Publishers.Catch<Publishers.Map<Self, Result<Self.Output, Self.Failure>>, Just<Result<Self.Output, Self.Failure>>> {
+    func mapToResult() -> Publishers.Catch<
+        Publishers.Map<Self, Result<Self.Output, Self.Failure>>,
+        Just<Result<Self.Output, Self.Failure>>
+    > {
         self.map(Result.success)
               .catch { Just(.failure($0)) }
     }

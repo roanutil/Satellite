@@ -8,10 +8,6 @@
 func satelliteListReducer(action: SatelliteListAction, state: SatelliteListState) -> SatelliteListState {
     var state = state
     switch action {
-    case .nextPage:
-        break
-    case .prevPage:
-        break
     case .select:
         break
     case .api(let apiAction):

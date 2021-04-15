@@ -33,13 +33,13 @@ struct SatelliteList<VStore: ComboViewStore>: View where VStore.State == Satelli
                 }
             }.background(Color.clear)
             HStack {
-                Button(action: { viewStore.dispatch(AppAction.list(.prevPage)) }) {
+                Button(action: { viewStore.dispatch(SatelliteListAction.prevPage()) }) {
                     Image(systemName: "chevron.left")
                 }
                 .disabled(viewStore.state.api.currentPage == 1)
                 .padding(.leading)
                 Text("\(viewStore.state.api.currentPage)/\(viewStore.state.api.totalPages)")
-                Button(action: { viewStore.dispatch(AppAction.list(.nextPage)) }) {
+                Button(action: { viewStore.dispatch(SatelliteListAction.nextPage()) }) {
                     Image(systemName: "chevron.right")
                 }
                 .disabled(viewStore.state.api.currentPage == viewStore.state.api.totalPages)

@@ -9,7 +9,8 @@ import SwiftUI
 import ReSwift
 
 /// Consolidates all or most of the view specific logic for animations, transitions, adaptivity, etc.
-struct ViewOrchestrator<VStore: ComboViewStore, Background: View, Earth: View, List: View, Detail: View>: View where VStore.State == ViewOrchestratorState {
+struct ViewOrchestrator<VStore: ComboViewStore, Background: View, Earth: View, List: View, Detail: View>: View
+where VStore.State == ViewOrchestratorState {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     @ObservedObject var viewStore: VStore

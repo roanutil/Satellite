@@ -8,7 +8,8 @@
 import SwiftUI
 import ReSwift
 
-struct AppView<VStore: ViewStore & ParentViewStore>: View where VStore.State == AppState, VStore.ParentState == VStore.State {
+struct AppView<VStore: ViewStore & ParentViewStore>: View
+where VStore.State == AppState, VStore.ParentState == VStore.State {
 
     @ObservedObject var viewStore: VStore
 
