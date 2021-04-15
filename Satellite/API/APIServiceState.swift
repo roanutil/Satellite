@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct APIServiceState: Equatable {
     var currentPage: Int = 1
@@ -19,4 +20,5 @@ struct APIServiceState: Equatable {
         return total
     }
     var isFetching: Bool = false
+    var cancellable: AnyCancellable?
 }

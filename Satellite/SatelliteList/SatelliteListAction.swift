@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import ReSwift
 
-enum SatelliteListAction: Equatable {
+enum SatelliteListAction: Equatable, Action {
     case nextPage
     case prevPage
     case select(_ satellite: Satellite)

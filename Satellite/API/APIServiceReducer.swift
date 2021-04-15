@@ -5,26 +5,26 @@
 //  Created by Andrew Roan on 1/28/21.
 //
 
-import ComposableArchitecture
+import ReSwift
+import ReSwiftThunk
 
-let apiServiceReducer = Reducer<APIServiceState, APIServiceAction, AppEnvironment> { state, action, env in
+func apiServiceReducer(action: APIServiceAction, state: APIServiceState) -> APIServiceState {
+    var state = state
     switch action {
-    case let .fetch(page: page):
-        return env.apiClient.fetchSatellites(page: page, pageSize: state.pageSize)
-            .subscribe(on: env.userInitSerialQueue)
-            .receive(on: env.mainQueue)
-            .catchToEffect()
-            .map(APIServiceAction.fetchResponse)
-    case .fetchResponse(let result):
+    case let .fetchResponse(result):
+        state.isFetching = false
+        state.cancellable = nil
         switch result {
         case .success(let data):
             state.isFetching = false
             state.currentPage = data.parameters.page
             state.totalItemCount = data.totalItems
-            return .none
-        case .failure:
+        case .failure(let error):
             // TODO: Map errors to UI
-            return .none
+            print("Network error -- \(error)")
         }
+    case let .fetchInProgress(cancellable):
+        state.cancellable = cancellable
     }
+    return state
 }

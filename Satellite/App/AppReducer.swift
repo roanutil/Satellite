@@ -5,32 +5,41 @@
 //  Created by Andrew Roan on 1/28/21.
 //
 
-import ComposableArchitecture
+import ReSwift
 
-let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
-    satelliteListReducer.pullback(
-        state: \AppState.list,
-        action: /AppAction.list,
-        environment: { $0 }
-    ),
-    Reducer { state, action, _ in
-        switch action {
-        case .detail(let detailAction):
-            switch detailAction {
-            case .dismiss:
-                state.viewPhase = .listFocus
-                return .none
-            }
-        case .list(let listAction):
-            switch listAction {
-            case .select(let satellite):
-                state.viewPhase = .detailFocus(.init(satellite: satellite))
-                return .none
-            default:
-                return .none
-            }
-        case .orchestrator(let orchestratorAction):
-            return .none
+func appReducer(action: AppAction, state: AppState) -> AppState {
+    var state = state
+    switch action {
+    case let .detail(detailAction):
+        switch detailAction {
+        case .dismiss:
+            state.viewPhase = .listFocus
         }
+    case .list(let listAction):
+        switch listAction {
+        case .select(let satellite):
+            state.viewPhase = .detailFocus(.init(satellite: satellite))
+        default:
+            break
+        }
+    case .orchestrator:
+        break
     }
-)
+
+    return state
+}
+
+func rootReducer(action: Action, state: AppState?) -> AppState {
+    var state = state ?? AppState(viewPhase: .listFocus, list: SatelliteListState())
+    guard let action = action as? AppAction else { return state }
+    state = appReducer(action: action, state: state)
+    switch action {
+    case .detail:
+        break
+    case .list(let listAction):
+        state.list = satelliteListReducer(action: listAction, state: state.list)
+    case .orchestrator:
+        break
+    }
+    return state
+}

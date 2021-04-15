@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import ReSwift
 
-struct ViewOrchestratorState: Equatable {
+struct ViewOrchestratorState: StateType, Equatable {
     // MARK: ZIndex
     var listZIndex: Double
     var detailZIndex: Double

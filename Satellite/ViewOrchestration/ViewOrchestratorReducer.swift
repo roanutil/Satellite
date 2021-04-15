@@ -5,11 +5,14 @@
 //  Created by Andrew Roan on 1/28/21.
 //
 
-import ComposableArchitecture
+import ReSwift
 
-let orchestratorReducer = Reducer<ViewOrchestratorState, ViewOrchestratorAction, AppEnvironment> { _, action, _ in
+func orchestratorReducer(action: ViewOrchestratorAction, state: ViewOrchestratorState) -> ViewOrchestratorState {
+
     switch action {
     case .phaseChangedTo:
-        return .none
+        break
     }
+
+    return state
 }

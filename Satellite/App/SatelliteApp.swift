@@ -6,35 +6,34 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
+import ReSwift
+import ReSwiftThunk
 
 @main
 struct SatelliteApp: App {
-    let store: Store<AppState, AppAction>
+    let store: ReSwift.Store<AppState>
 
     init() {
-        self.store = Store<AppState, AppAction>(
-            initialState: AppState(viewPhase: .listFocus, list: .init()),
-            reducer: appReducer,
-            environment: AppEnvironment.prod
-        )
-        let viewStore = ViewStore(self.store)
-        // Initialize first fetch from the api on launch
-        viewStore.send(AppAction.list(.api(.fetch(page: 1))))
+        let thunkMiddleware: Middleware<AppState> = createThunkMiddleware()
+        self.store = Store(reducer: rootReducer, state: nil, middleware: [thunkMiddleware])
     }
     var body: some Scene {
         SatelliteScene(store: store)
     }
 
     struct SatelliteScene: Scene {
-        let store: Store<AppState, AppAction>
-        init(store: Store<AppState, AppAction>) {
+        let store: ReSwift.Store<AppState>
+        let viewStore: RootViewStore<AppState>
+        init(store: ReSwift.Store<AppState>) {
             self.store = store
+            let viewStore = RootViewStore(store)
+            self.viewStore = viewStore
+            viewStore.dispatch(APIServiceAction.fetch(page: 1))
         }
 
         var body: some Scene {
             WindowGroup {
-                AppView(store: store)
+                AppView(viewStore: viewStore)
             }
         }
     }

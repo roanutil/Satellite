@@ -7,7 +7,8 @@
 
 import Foundation
 import Combine
+import ReSwift
 
-struct SatelliteDetailState: Equatable {
+struct SatelliteDetailState: StateType, Equatable {
     let satellite: Satellite
 }

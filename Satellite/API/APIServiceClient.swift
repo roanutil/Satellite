@@ -7,9 +7,10 @@
 
 import Foundation
 import Combine
+import ReSwift
 
 /// Dependency injection point for all services and side effects
-struct APIServiceClient {
+struct APIServiceClient: StateType {
     typealias SortKey = APIService.SortKey
     typealias SortDirection = APIService.SortDirection
     typealias FetchSatellitesData = APIService.FetchSatellitesData

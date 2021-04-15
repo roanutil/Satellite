@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import ReSwift
 
-enum AppAction: Equatable {
+enum AppAction: Equatable, Action {
     case list(SatelliteListAction)
     case detail(SatelliteDetailAction)
     case orchestrator(ViewOrchestratorAction)

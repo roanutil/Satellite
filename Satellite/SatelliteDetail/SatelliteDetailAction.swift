@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import ReSwift
 
-enum SatelliteDetailAction: Equatable {
+enum SatelliteDetailAction: Equatable, Action {
     case dismiss
 }

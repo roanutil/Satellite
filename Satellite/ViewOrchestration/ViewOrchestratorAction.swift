@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import ReSwift
 
-enum ViewOrchestratorAction: Equatable {
+enum ViewOrchestratorAction: Equatable, Action {
     case phaseChangedTo(ViewPhase)
 }

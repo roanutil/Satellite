@@ -6,55 +6,48 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 
-struct SatelliteDetailView: View {
+struct SatelliteDetailView<VStore: ComboViewStore>: View where VStore.State == SatelliteDetailState {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    let store: Store<SatelliteDetailState, SatelliteDetailAction>
+
+    @ObservedObject var viewStore: VStore
     let dismissMaxSize: CGSize
 
-    init(store: Store<SatelliteDetailState, SatelliteDetailAction>, dismissMaxSize: CGSize) {
-        self.store = store
-        self.dismissMaxSize = dismissMaxSize
-    }
-
     var body: some View {
-        WithViewStore(store) { viewStore in
-            ZStack {
-                VStack {
-                    // Compact size class doesn't have enough room for side-by-side
-                    if horizontalSizeClass == .regular {
-                        HStack {
-                            Text(viewStore.satellite.name)
-                            Text(viewStore.satellite.date)
-                        }
-                        .padding(.top)
-                    } else {
-                        VStack {
-                            Text(viewStore.satellite.name)
-                            Text(viewStore.satellite.date)
-                        }
-                        .padding(.top)
-                    }
-                    Spacer()
-                    Text("Line 1: \(viewStore.satellite.line1?.raw ?? "")")
-                    Text("Line 2: \(viewStore.satellite.line2?.raw ?? "")")
-                }.foregroundColor(.white)
-            }
+        ZStack {
             VStack {
-                Spacer()
-                HStack {
-                    Button(action: {withAnimation( .easeInOut) { viewStore.send(.dismiss) }}) {
-                        Image(systemName: "chevron.compact.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundColor(.white)
-                            .frame(maxWidth: dismissMaxSize.width, maxHeight: dismissMaxSize.height)
+                // Compact size class doesn't have enough room for side-by-side
+                if horizontalSizeClass == .regular {
+                    HStack {
+                        Text(viewStore.state.satellite.name)
+                        Text(viewStore.state.satellite.date)
                     }
-                    Spacer()
+                    .padding(.top)
+                } else {
+                    VStack {
+                        Text(viewStore.state.satellite.name)
+                        Text(viewStore.state.satellite.date)
+                    }
+                    .padding(.top)
+                }
+                Spacer()
+                Text("Line 1: \(viewStore.state.satellite.line1?.raw ?? "")")
+                Text("Line 2: \(viewStore.state.satellite.line2?.raw ?? "")")
+            }.foregroundColor(.white)
+        }
+        VStack {
+            Spacer()
+            HStack {
+                Button(action: {withAnimation( .easeInOut) { viewStore.dispatch(AppAction.detail(.dismiss)) }}) {
+                    Image(systemName: "chevron.compact.right")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.white)
+                        .frame(maxWidth: dismissMaxSize.width, maxHeight: dismissMaxSize.height)
                 }
                 Spacer()
             }
+            Spacer()
         }
     }
 }

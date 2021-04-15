@@ -8,9 +8,10 @@
 import SwiftUI
 import Combine
 import ComposableArchitecture
+import ReSwift
 
 /// Root state
-struct AppState: Equatable {
+struct AppState: Equatable, StateType {
     var viewPhase: ViewPhase
     var orchestrator: ViewOrchestratorState {
         switch viewPhase {

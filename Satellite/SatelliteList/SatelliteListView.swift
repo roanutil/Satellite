@@ -6,48 +6,45 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 
-struct SatelliteList: View {
-    let store: Store<SatelliteListState, SatelliteListAction>
+struct SatelliteList<VStore: ComboViewStore>: View where VStore.State == SatelliteListState {
+    let viewStore: VStore
     let maxWidth: CGFloat
 
     var body: some View {
-        WithViewStore(store) { viewStore in
-            VStack {
-                ScrollView {
-                    ForEach(viewStore.satellites) { satellite in
-                        Button(
-                            action: { withAnimation(Animation.easeInOut) {
-                                    viewStore.send(.select(satellite))
-                            }},
-                            label: {
-                                HStack {
-                                    Text(satellite.name)
-                                        .truncationMode(.tail)
-                                        .background(Color.clear)
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal)
-                                    Spacer()
-                                }
+        VStack {
+            ScrollView {
+                ForEach(viewStore.state.satellites) { satellite in
+                    Button(
+                        action: { withAnimation(Animation.easeInOut) {
+                            viewStore.dispatch(AppAction.list(.select(satellite)))
+                        }},
+                        label: {
+                            HStack {
+                                Text(satellite.name)
+                                    .truncationMode(.tail)
+                                    .background(Color.clear)
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal)
+                                Spacer()
                             }
-                        ).padding(.top)
-                    }
-                }.background(Color.clear)
-                HStack {
-                    Button(action: { viewStore.send(SatelliteListAction.prevPage) }) {
-                        Image(systemName: "chevron.left")
-                    }
-                    .disabled(viewStore.api.currentPage == 1)
-                    .padding(.leading)
-                    Text("\(viewStore.api.currentPage)/\(viewStore.api.totalPages)")
-                    Button(action: { viewStore.send(SatelliteListAction.nextPage) }) {
-                        Image(systemName: "chevron.right")
-                    }
-                    .disabled(viewStore.api.currentPage == viewStore.api.totalPages)
-                    Spacer()
-                }.foregroundColor(.white)
-            }.frame(maxWidth: maxWidth)
-        }
+                        }
+                    ).padding(.top)
+                }
+            }.background(Color.clear)
+            HStack {
+                Button(action: { viewStore.dispatch(AppAction.list(.prevPage)) }) {
+                    Image(systemName: "chevron.left")
+                }
+                .disabled(viewStore.state.api.currentPage == 1)
+                .padding(.leading)
+                Text("\(viewStore.state.api.currentPage)/\(viewStore.state.api.totalPages)")
+                Button(action: { viewStore.dispatch(AppAction.list(.nextPage)) }) {
+                    Image(systemName: "chevron.right")
+                }
+                .disabled(viewStore.state.api.currentPage == viewStore.state.api.totalPages)
+                Spacer()
+            }.foregroundColor(.white)
+        }.frame(maxWidth: maxWidth)
     }
 }

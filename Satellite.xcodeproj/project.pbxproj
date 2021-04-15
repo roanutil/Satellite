@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4920ABAC2624E4090058C133 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4920ABAB2624E4090058C133 /* ReSwift */; };
+		4920ABB22624E44A0058C133 /* ReSwiftThunk in Frameworks */ = {isa = PBXBuildFile; productRef = 4920ABB12624E44A0058C133 /* ReSwiftThunk */; };
+		4920ABBA2624F1B70058C133 /* Publisher+mapToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920ABB92624F1B70058C133 /* Publisher+mapToResult.swift */; };
+		4920ABC22624FB760058C133 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920ABC12624FB760058C133 /* ViewStore.swift */; };
 		49595A8E25C31DEB00351445 /* ViewOrchestratorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595A8D25C31DEB00351445 /* ViewOrchestratorState.swift */; };
 		49595AA425C3250400351445 /* ViewOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49595AA325C3250400351445 /* ViewOrchestrator.swift */; };
 		49595AB825C340C400351445 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 49595AB725C340C400351445 /* ComposableArchitecture */; };
@@ -30,7 +34,7 @@
 		49E608C025C1C92E002F442B /* TwoLineElementSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */; };
 		49E608C825C1C94B002F442B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608C725C1C94B002F442B /* APIService.swift */; };
 		49E608CD25C1C97D002F442B /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608CC25C1C97D002F442B /* Satellite.swift */; };
-		49E608EB25C22DCA002F442B /* APIServiceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608EA25C22DCA002F442B /* APIServiceStore.swift */; };
+		49E608EB25C22DCA002F442B /* APIServiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608EA25C22DCA002F442B /* APIServiceAction.swift */; };
 		49E608F025C23054002F442B /* SatelliteListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608EF25C23054002F442B /* SatelliteListState.swift */; };
 		49E608F525C23269002F442B /* SatelliteDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E608F425C23269002F442B /* SatelliteDetailState.swift */; };
 		49FA6CE625C1F37300DC2BA2 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */; };
@@ -62,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4920ABB92624F1B70058C133 /* Publisher+mapToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+mapToResult.swift"; sourceTree = "<group>"; };
+		4920ABC12624FB760058C133 /* ViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
 		49595A8D25C31DEB00351445 /* ViewOrchestratorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestratorState.swift; sourceTree = "<group>"; };
 		49595AA325C3250400351445 /* ViewOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrchestrator.swift; sourceTree = "<group>"; };
 		49595AC225C3428600351445 /* SatelliteListAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListAction.swift; sourceTree = "<group>"; };
@@ -90,7 +96,7 @@
 		49E608BF25C1C92E002F442B /* TwoLineElementSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLineElementSet.swift; sourceTree = "<group>"; };
 		49E608C725C1C94B002F442B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		49E608CC25C1C97D002F442B /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
-		49E608EA25C22DCA002F442B /* APIServiceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStore.swift; sourceTree = "<group>"; };
+		49E608EA25C22DCA002F442B /* APIServiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceAction.swift; sourceTree = "<group>"; };
 		49E608EF25C23054002F442B /* SatelliteListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteListState.swift; sourceTree = "<group>"; };
 		49E608F425C23269002F442B /* SatelliteDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteDetailState.swift; sourceTree = "<group>"; };
 		49FA6CE525C1F37300DC2BA2 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49595AB825C340C400351445 /* ComposableArchitecture in Frameworks */,
+				4920ABAC2624E4090058C133 /* ReSwift in Frameworks */,
+				4920ABB22624E44A0058C133 /* ReSwiftThunk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				49595B1325C3866600351445 /* StarProvider.swift */,
+				4920ABB92624F1B70058C133 /* Publisher+mapToResult.swift */,
+				4920ABC12624FB760058C133 /* ViewStore.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -222,7 +232,7 @@
 				49E608C725C1C94B002F442B /* APIService.swift */,
 				49FA6CF325C1F44A00DC2BA2 /* APIServiceClient.swift */,
 				49FA6D2425C2074B00DC2BA2 /* APIServiceState.swift */,
-				49E608EA25C22DCA002F442B /* APIServiceStore.swift */,
+				49E608EA25C22DCA002F442B /* APIServiceAction.swift */,
 				49595AD725C3441E00351445 /* APIServiceReducer.swift */,
 			);
 			path = API;
@@ -291,6 +301,8 @@
 			name = Satellite;
 			packageProductDependencies = (
 				49595AB725C340C400351445 /* ComposableArchitecture */,
+				4920ABAB2624E4090058C133 /* ReSwift */,
+				4920ABB12624E44A0058C133 /* ReSwiftThunk */,
 			);
 			productName = Satellite;
 			productReference = 49E6088D25C1C8F9002F442B /* Satellite.app */;
@@ -365,6 +377,8 @@
 			mainGroup = 49E6088425C1C8F9002F442B;
 			packageReferences = (
 				49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				4920ABAA2624E4090058C133 /* XCRemoteSwiftPackageReference "ReSwift" */,
+				4920ABB02624E44A0058C133 /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */,
 			);
 			productRefGroup = 49E6088E25C1C8F9002F442B /* Products */;
 			projectDirPath = "";
@@ -437,13 +451,15 @@
 				49595AED25C358D500351445 /* AppReducer.swift in Sources */,
 				49FA6D0C25C2029E00DC2BA2 /* AppView.swift in Sources */,
 				49E608C825C1C94B002F442B /* APIService.swift in Sources */,
-				49E608EB25C22DCA002F442B /* APIServiceStore.swift in Sources */,
+				49E608EB25C22DCA002F442B /* APIServiceAction.swift in Sources */,
 				49595B1425C3866600351445 /* StarProvider.swift in Sources */,
 				49595B0E25C37A6400351445 /* BackgroundView.swift in Sources */,
 				49595AE525C3489200351445 /* ViewPhase.swift in Sources */,
 				49595AF725C3633000351445 /* ViewOrchestratorReducer.swift in Sources */,
 				49E6089125C1C8F9002F442B /* SatelliteApp.swift in Sources */,
 				49E608F025C23054002F442B /* SatelliteListState.swift in Sources */,
+				4920ABC22624FB760058C133 /* ViewStore.swift in Sources */,
+				4920ABBA2624F1B70058C133 /* Publisher+mapToResult.swift in Sources */,
 				49595ACB25C342D500351445 /* SatelliteDetailAction.swift in Sources */,
 				49595AD325C3434E00351445 /* SatelliteListReducer.swift in Sources */,
 				49595B1C25C3A45100351445 /* Earth.swift in Sources */,
@@ -779,6 +795,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4920ABAA2624E4090058C133 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		4920ABB02624E44A0058C133 /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift-Thunk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
 		49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -790,6 +822,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4920ABAB2624E4090058C133 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4920ABAA2624E4090058C133 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+		4920ABB12624E44A0058C133 /* ReSwiftThunk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4920ABB02624E44A0058C133 /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */;
+			productName = ReSwiftThunk;
+		};
 		49595AB725C340C400351445 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 49595AB625C340C400351445 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;

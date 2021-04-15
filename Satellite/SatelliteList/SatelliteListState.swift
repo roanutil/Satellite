@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import ReSwift
 
-struct SatelliteListState: Equatable {
+struct SatelliteListState: StateType, Equatable {
     var satellites: [Satellite] = []
     var api: APIServiceState = .init()
 }

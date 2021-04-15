@@ -6,36 +6,37 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
+import ReSwift
 
-struct AppView: View {
-    let store: Store<AppState, AppAction>
+struct AppView<VStore: ViewStore & ParentViewStore>: View where VStore.State == AppState, VStore.ParentState == VStore.State {
+
+    @ObservedObject var viewStore: VStore
 
     var body: some View {
-        WithViewStore(store) { _ in
-            ViewOrchestrator(
-                store: orchestratorStore,
-                background: BackgroundView.init(containerSize:),
-                earth: Earth(),
-                list: { maxWidth in SatelliteList(store: listStore, maxWidth: maxWidth) },
-                detail: { maxDismissSize in
-                    IfLetStore(
-                        self.detailStore,
-                        then: { SatelliteDetailView(store: $0, dismissMaxSize: maxDismissSize) })
-                }
-            )
-        }
+        ViewOrchestrator(
+            viewStore: orchestratorViewStore,
+            background: BackgroundView.init(containerSize:),
+            earth: Earth(),
+            list: { maxWidth in SatelliteList(viewStore: listViewStore, maxWidth: maxWidth) },
+            detail: { maxDismissSize -> AnyView in
+                    if let detailViewStore = self.detailViewStore {
+                        return AnyView(SatelliteDetailView(viewStore: detailViewStore, dismissMaxSize: maxDismissSize))
+                    } else {
+                        return AnyView(EmptyView())
+                    }
+            }
+        )
     }
 
-    var orchestratorStore: Store<ViewOrchestratorState, ViewOrchestratorAction> {
-        store.scope(state: { $0.orchestrator }, action: { AppAction.orchestrator($0) })
+    var orchestratorViewStore: ChildViewStore<ViewOrchestratorState, VStore> {
+        ChildViewStore(parent: viewStore, statePath: \.orchestrator)
     }
 
-    var listStore: Store<SatelliteListState, SatelliteListAction> {
-        store.scope(state: { $0.list }, action: { AppAction.list($0) })
+    var listViewStore: ChildViewStore<SatelliteListState, VStore> {
+        ChildViewStore(parent: viewStore, statePath: \.list)
     }
 
-    var detailStore: Store<SatelliteDetailState?, SatelliteDetailAction> {
-        store.scope(state: { $0.detail }, action: { AppAction.detail($0) })
+    var detailViewStore: ChildViewStore<SatelliteDetailState, VStore>? {
+        ChildViewStore(parent: viewStore, statePath: \.detail)
     }
 }
